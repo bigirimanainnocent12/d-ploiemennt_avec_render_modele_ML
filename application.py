@@ -20,12 +20,12 @@ app = FastAPI(
 
 
 # Monter le dossier statique
-app.mount("/static", StaticFiles(directory="static"), name="static")
+#app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Route pour servir le favicon
-@app.get("/favicon.ico", include_in_schema=False)
-async def favicon():
-    return FileResponse("static/favicon.ico")
+#@app.get("/favicon.ico", include_in_schema=False)
+#async def favicon():
+ #   return FileResponse("static/favicon.ico")
 
 class Sexe(str, Enum):
     Homme = "Homme"
@@ -100,3 +100,4 @@ def deploiement(age: int, sexe: Sexe, bmi: float, children: int, smoker: Smoker,
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("application:app", host="localhost", port=8000)
+
