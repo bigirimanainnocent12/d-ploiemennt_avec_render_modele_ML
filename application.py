@@ -99,5 +99,9 @@ def deploiement(age: int, sexe: Sexe, bmi: float, children: int, smoker: Smoker,
     
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("application:app", host="localhost", port=8000)
+    import os
+
+    port = int(os.environ.get("PORT", 8000))  # Render fournit PORT
+    uvicorn.run("application:app", host="0.0.0.0", port=port)
+
 
